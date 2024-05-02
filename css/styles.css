@@ -451,24 +451,11 @@ button {
   display: flex;
   gap: 24px;
 }
-.subscribe-label {
-  position: absolute;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 2;
-  letter-spacing: 0.04em;
-  color: #fff;
-  top: 50%;
-  left: 16px;
-  transform: translateY(-50%);
-}
-.subscribe-email:not(:placeholder-shown) + .subscribe-label {
-  visibility: hidden;
-}
-.footer-form:focus-within > .subscribe-label {
-  visibility: hidden;
-}
-.subscribe-email {
+/* .subscribe-label {
+
+} */
+
+.subscribe-email-input {
   width: 264px;
   height: 40px;
   padding-top: 11px;
@@ -485,6 +472,11 @@ button {
   border-radius: 4px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
+
+.subscribe-email-input::placeholder {
+  color: #fff;
+}
+
 .subscribe-button {
   display: flex;
   gap: 16px;
@@ -553,7 +545,8 @@ button {
   background-color: rgba(231, 233, 252, 1);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close-icon {
@@ -614,7 +607,7 @@ button {
   margin-bottom: 4px;
 }
 
-.form-field input {
+.form-input {
   display: block;
   padding-top: 11px;
   padding-bottom: 11px;
@@ -628,9 +621,21 @@ button {
   line-height: 1.17;
   letter-spacing: 0.04em;
   color: var(--headers-color);
+  background-color: transparent;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.form-field textarea {
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  fill: var(--headers-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-textarea {
   display: block;
   resize: none;
   padding: 8px 16px;
@@ -643,9 +648,12 @@ button {
   line-height: 1.17;
   letter-spacing: 0.04em;
   color: var(--headers-color);
+  background-color: transparent;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-::placeholder {
+.form-textarea::placeholder {
   color: rgba(46, 47, 66, 0.4);
 }
 
@@ -658,21 +666,13 @@ button {
   border-color: var(--links-color);
 }
 
-.form-field:focus-within > .textarea {
+.form-field:focus-within > .form-textarea {
   outline: none;
   border-color: var(--links-color);
 }
 
-.form-input:focus + .span-icon > .input-icon {
+.form-input:focus + .input-icon {
   fill: #4d5ae5;
-}
-
-.input-icon {
-  position: absolute;
-  top: 50%;
-  left: 16px;
-  transform: translateY(-50%);
-  fill: var(--headers-color);
 }
 
 .checkbox {
