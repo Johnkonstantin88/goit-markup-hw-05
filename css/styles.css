@@ -451,9 +451,6 @@ button {
   display: flex;
   gap: 24px;
 }
-/* .subscribe-label {
-
-} */
 
 .subscribe-email-input {
   width: 264px;
